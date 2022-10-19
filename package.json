@@ -1,0 +1,26 @@
+{
+    "name": "employee-tracker",
+    "version": "1.0.0",
+    "description": "## Your Task",
+    "main": "server.js",
+    "scripts": {
+      "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+      "type": "git",
+      "url": "git+https://github.com/cspitt99/employee-tracker"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+      "url": "https://github.com/cspitt99/employee-tracker"
+    },
+    "homepage": "https://github.com/cspitt99/employee-tracker#readme",
+    "dependencies": {
+      "console.table": "^0.10.0",
+      "dotenv": "^16.0.1",
+      "inquirer": "^8.2.4",
+      "mysql2": "^2.3.3"
+    }
+  }
