@@ -30,3 +30,53 @@ function mainMenu() {
             }
         })
 };
+
+const addDepartmentQuestions = [{
+    type: "input",
+    name: "department",
+    message: "What department would you like to add?"
+}];
+
+function viewDepartments() {
+
+    db.query('SELECT * FROM department', (err, data) => {
+        console.table(data);
+        mainMenu();
+    })
+
+};
+
+function viewRoles() {
+
+    db.query(`
+    SELECT
+    role.id,
+    role.title,
+    role.salary
+    FROM role`, (err, data) => {
+        console.table(data);
+        mainMenu();
+    })
+
+};
+
+function viewEmployees() {
+
+    db.query(`
+    SELECT 
+    employee.id,
+    employee.first_name,
+    employee.last_name,
+    role.title,
+    department.name as department,
+    role.salary,
+    CONCAT(mgr.first_name, " " , mgr.last_name) as manager
+    FROM employee
+    LEFT JOIN role ON role.id= employee.role_id
+    LEFT JOIN department ON role.department_id=department.id
+    LEFT JOIN employee as mgr ON employee.manager_id = mgr.id
+    `, (err, data) => {
+        console.table(data);
+        mainMenu();
+    });
+};
