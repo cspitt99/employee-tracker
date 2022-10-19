@@ -1,4 +1,10 @@
 const inquirer = require('inquirer');
+const db = require('./config/connection');
+require('console.table');
+
+db.connect(() => {
+    mainMenu();
+});
 
 const mainMenuQuestions = [{
     type: "list",
